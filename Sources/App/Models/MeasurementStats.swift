@@ -7,12 +7,20 @@
 
 import Fluent
 import Vapor
+import GRPCVapor
 
-struct MeasurementStats: Content {
-    let maxTemperature: Int
-    let minTemperature: Int
-    let avgTemperature: Double
-    let measurmentCount: Int
+struct MeasurementStats: Content, GRPCModel {
+    init() {
+        maxTemperature = 0
+        minTemperature = 0
+        avgTemperature = 0.0
+        measurmentCount = 0
+    }
+
+    var maxTemperature: Int
+    var minTemperature: Int
+    var avgTemperature: Double
+    var measurmentCount: Int
 
     init(measurements: [Measurement]) {
         let temperatures = measurements.map { $0.temperature }

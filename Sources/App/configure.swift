@@ -1,6 +1,7 @@
 import Fluent
 import FluentSQLiteDriver
 import Vapor
+import GRPCVapor
 
 // Called before your application initializes.
 public func configure(_ app: Application) throws {
@@ -9,7 +10,7 @@ public func configure(_ app: Application) throws {
 
     // Configure SQLite database
     app.databases.use(.sqlite(.file("db.sqlite")), as: .sqlite)
-//    app.middleware.use(<#T##middleware: Middleware##Middleware#>)
+    app.middleware.use(GRPCMiddleware(services: [ThermostatService()]))
 
     // Configure migrations
     app.migrations.add(CreateMeasurement())

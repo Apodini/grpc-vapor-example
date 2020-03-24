@@ -7,8 +7,9 @@
 
 import Fluent
 import Vapor
+import GRPCVapor
 
-final class Thermostat: Model, Content {
+final class Thermostat: Model, Content, GRPCModel {
 
     static let schema = "thermostat"
 

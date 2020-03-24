@@ -7,8 +7,9 @@
 
 import Fluent
 import Vapor
+import GRPCVapor
 
-final class Measurement: Model, Content {
+final class Measurement: Model, Content, GRPCModel {
 
     static let schema = "measurement"
 

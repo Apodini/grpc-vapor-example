@@ -56,6 +56,24 @@
         }
       },
       {
+        "package": "GRPC",
+        "repositoryURL": "https://github.com/grpc/grpc-swift.git",
+        "state": {
+          "branch": "58762ba",
+          "revision": "58762bae04f54978e09032306225ddffc9c0fc5a",
+          "version": null
+        }
+      },
+      {
+        "package": "grpc-vapor",
+        "repositoryURL": "https://github.com/michaelschlicker/grpc-vapor.git",
+        "state": {
+          "branch": "59f4b66",
+          "revision": "59f4b666507129cced736bf8f10daec581536fe9",
+          "version": null
+        }
+      },
+      {
         "package": "routing-kit",
         "repositoryURL": "https://github.com/vapor/routing-kit.git",
         "state": {
@@ -111,7 +129,7 @@
       },
       {
         "package": "swift-log",
-        "repositoryURL": "https://github.com/apple/swift-log.git",
+        "repositoryURL": "https://github.com/apple/swift-log",
         "state": {
           "branch": null,
           "revision": "74d7b91ceebc85daf387ebb206003f78813f71aa",
@@ -161,6 +179,24 @@
           "branch": null,
           "revision": "af46d9b58fafbb76f9b01177568d435a1b024f99",
           "version": "2.6.2"
+        }
+      },
+      {
+        "package": "swift-nio-transport-services",
+        "repositoryURL": "https://github.com/apple/swift-nio-transport-services.git",
+        "state": {
+          "branch": null,
+          "revision": "c7f06384dc5ce7e8506de5ed9b59e35b4d88c64b",
+          "version": "1.3.0"
+        }
+      },
+      {
+        "package": "SwiftProtobuf",
+        "repositoryURL": "https://github.com/apple/swift-protobuf.git",
+        "state": {
+          "branch": null,
+          "revision": "7790acf0a81d08429cb20375bf42a8c7d279c5fe",
+          "version": "1.8.0"
         }
       },
       {
