@@ -16,10 +16,13 @@ This implementation example offers five REST endpoints / gRPC remote procedure c
 - uploadMeasurements: gets either a single (REST) masurement or a stream (gRPC) masurements saves the measurement in the Fluent database and then returns the uploaded measurement(s) with their new id
 - calculateStatistics: gets either an array (REST) or a stream (gRPC) of measurements and returns a MeasurementStats object that calculated the minimum, maximum and average of the received measurements.  
 
+To set up the server and client they both need to have the certificates and keys in their working directories like this:
+`openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem`
+
 ## Current Problems
 Currently this example doesn't work that seemlessly. Here are the most important remaining issues:
 - Switching from gRPC to REST calls requires the server to disable TLS encryption and HTTP/2 support (marked in configure.swift) as the REST client doesn't support yet encrpyting REST requests and Vapor only supports encrypted HTTP/2 requests 
-- To set up the server and client they both need to have the certificates and keys in their working directories. I recommend using custom working directories and the self-signed certificate & key sent via Slack.
+- 
 - Currently when using call types that have server-side streaming the client doesn't get the end message from the server although it seems like the server sends it. (For this reason all responses from calls get printed on the client side so that the individual server messages can be checked.    
 - This example and the framework require Swift version 5.2 as Vapor 4 is based on this version.
 - The grpc-vapor framework currently uses an old version of swift-grpc as the newer version made two important classes internal that need to be replaced soon.
