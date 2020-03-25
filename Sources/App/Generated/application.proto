@@ -2,51 +2,47 @@ syntax = "proto3";
 
 option swift_prefix="_";
 service ThermostatService {
-    rpc GetMeasurements (ThermostatID) returns (stream Measurement) {}
-    rpc GetThermostatIds (Empty) returns (stream ThermostatID) {}
-    rpc GetThermostatWithId (ThermostatID) returns (Thermostat) {}
     rpc UploadMeasurements (stream Measurement) returns (stream Measurement) {}
     rpc CalculateStatistics (stream Measurement) returns (MeasurementStats) {}
-}
-
-message Thermostat {
-    oneof name_optional {
-        string name = 1;
-        Nil no_name = 536870910;
-    }
-    oneof id_optional {
-        string id = 2;
-        Nil no_id = 536870909;
-    }
-    bool isSmartThermostat = 3;
+    rpc GetMeasurements (ThermostatID) returns (stream Measurement) {}
+    rpc GetThermostatWithId (ThermostatID) returns (Thermostat) {}
+    rpc GetThermostatIds (Empty) returns (stream ThermostatID) {}
 }
 
 message MeasurementStats {
-    int64 minTemperature = 1;
-    int64 maxTemperature = 2;
-    double avgTemperature = 3;
+    int64 maxTemperature = 1;
+    double avgTemperature = 2;
+    int64 minTemperature = 3;
     int64 measurmentCount = 4;
 }
 
-message ThermostatID {
-    string id = 1;
+message Thermostat {
+    bool isSmartThermostat = 1;
+    oneof nameOptional {
+        string name = 2;
+        Nil no_name = 536870909;
+    }
+    oneof idOptional {
+        string id = 3;
+        Nil no_id = 536870908;
+    }
+}
+
+message Empty {
 }
 
 message Measurement {
     int64 temperature = 1;
-    oneof id_optional {
-        string id = 2;
-        Nil no_id = 536870909;
+    string thermostatId = 2;
+    oneof idOptional {
+        string id = 3;
+        Nil no_id = 536870908;
     }
-    string thermostatId = 3;
     int64 timestamp = 4;
 }
 
-message ThermostatIDS {
-    repeated int64 thermostatIds = 1;
-}
-
-message Empty {
+message ThermostatID {
+    string id = 1;
 }
 
 message Nil { }

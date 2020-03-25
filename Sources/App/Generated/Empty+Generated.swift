@@ -4,7 +4,6 @@ extension _Empty: GRPCMessage {
     typealias ModelType = Empty
 
     init(modelObject: Empty) {
-        var message = _Empty()
     }
 
     func toModel() -> Empty {

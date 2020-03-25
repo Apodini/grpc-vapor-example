@@ -6,14 +6,14 @@ extension _Thermostat: GRPCMessage {
 
     init(modelObject: Thermostat) {
         var message = _Thermostat()
-        message.idOptional = modelObject.id.map { _Thermostat.OneOf_IDOptional.id($0.uuidString) } ??
+        idOptional = modelObject.id.map { _Thermostat.OneOf_IDOptional.id($0.uuidString) } ??
             _Thermostat.OneOf_IDOptional.noID(_Nil())
-        message.idOptional = modelObject.id?.uuidString != nil ?
+        idOptional = modelObject.id?.uuidString != nil ?
             _Thermostat.OneOf_IDOptional.id(modelObject.id!.uuidString) :
             _Thermostat.OneOf_IDOptional.noID(_Nil())
                 //= modelObject.id.map { _Thermostat.OneOf_ID_OPTIONAL.id(UUID($0)) } ?? _Thermostat.OneOf_ID_OPTIONAL.noID(_Nil())
-        message.isSmartThermostat = modelObject.isSmartThermostat
-        message.nameOptional = modelObject.name.map { _Thermostat.OneOf_NameOptional.name($0) } ??
+        isSmartThermostat = modelObject.isSmartThermostat
+        nameOptional = modelObject.name.map { _Thermostat.OneOf_NameOptional.name($0) } ??
             _Thermostat.OneOf_NameOptional.noName(_Nil())
     }
 

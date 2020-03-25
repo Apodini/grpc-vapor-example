@@ -4,8 +4,7 @@ extension _ThermostatID: GRPCMessage {
     typealias ModelType = ThermostatID
 
     init(modelObject: ThermostatID) {
-        var message = _ThermostatID()
-        message.id = modelObject.id
+        id = modelObject.id
     }
 
     func toModel() -> ThermostatID {

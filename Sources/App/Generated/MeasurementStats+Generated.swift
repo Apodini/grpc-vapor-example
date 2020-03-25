@@ -4,11 +4,10 @@ extension _MeasurementStats: GRPCMessage {
     typealias ModelType = MeasurementStats
 
     init(modelObject: MeasurementStats) {
-        var message = _MeasurementStats()
-        message.avgTemperature = modelObject.avgTemperature
-        message.minTemperature = Int64(modelObject.minTemperature)
-        message.maxTemperature = Int64(modelObject.maxTemperature)
-        message.measurmentCount = Int64(modelObject.measurmentCount)
+        avgTemperature = modelObject.avgTemperature
+        minTemperature = Int64(modelObject.minTemperature)
+        maxTemperature = Int64(modelObject.maxTemperature)
+        measurmentCount = Int64(modelObject.measurmentCount)
     }
 
     func toModel() -> MeasurementStats {
