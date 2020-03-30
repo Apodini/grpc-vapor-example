@@ -21,7 +21,7 @@ extension ThermostatService {
                 return self.getThermostatWithId(request: req)
             }
         case "UploadMeasurements":
-            return try? StreamingCallHandler<_Measurement, _Measurement>(vaporRequest: vaporRequest, eventFactory: self.uploadMeasurements)
+            return try? StreamingCallHandler<_Measurement, _Measurement>(vaporRequest: vaporRequest, procedureCall: self.uploadMeasurements)
         case "CalculateStatistics":
             return try? ClientStreamingCallHandler<_Measurement, _MeasurementStats>(vaporRequest: vaporRequest) { req in
                 return self.calculateStatistics(req: req)
