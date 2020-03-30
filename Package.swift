@@ -14,7 +14,7 @@ let package = Package(
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0-rc.1"),
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0-rc.1"),
         .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.0-rc.1"),
-        .package(url: "https://github.com/Apodini/grpc-vapor", from: "0.0.1")
+        .package(url: "https://github.com/Apodini/grpc-vapor", .revision("3589e49"))
     ],
     targets: [
         .target(name: "App", dependencies: [

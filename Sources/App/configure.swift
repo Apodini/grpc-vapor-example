@@ -9,14 +9,14 @@ public func configure(_ app: Application) throws {
     // Serves files from `Public/` directory
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
-    let cert = try NIOSSLCertificate.fromPEMFile(FileManager.default.currentDirectoryPath + "/cert.pem")
-    let keyPath = FileManager.default.currentDirectoryPath + "/key.pem"
+    let certificates = try NIOSSLCertificate.fromPEMBytes(Array(sampleCert.utf8))
+    let privateKey = try NIOSSLPrivateKey.init(bytes: Array(sampleKey.utf8), format: .pem)
 
     app.server.configuration.hostname = "localhost"
 
     // Comment these two lines to support REST requests
     app.server.configuration.supportVersions = [.two]
-    app.server.configuration.tlsConfiguration = .forServer(certificateChain: cert.map { .certificate($0) }, privateKey: .file(keyPath))
+    app.server.configuration.tlsConfiguration = .forServer(certificateChain: certificates.map { .certificate($0) }, privateKey: .privateKey(privateKey))
 
     // Configure SQLite database
     app.databases.use(.sqlite(.file("db.sqlite")), as: .sqlite)
