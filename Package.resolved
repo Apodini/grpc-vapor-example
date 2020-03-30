@@ -86,9 +86,9 @@
         "package": "grpc-vapor",
         "repositoryURL": "https://github.com/Apodini/grpc-vapor",
         "state": {
-          "branch": "3589e49",
+          "branch": null,
           "revision": "3589e4985160ba05e67d7b40f4f4f45376ef32e4",
-          "version": null
+          "version": "0.1.1"
         }
       },
       {
@@ -174,7 +174,7 @@
       },
       {
         "package": "swift-log",
-        "repositoryURL": "https://github.com/apple/swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
           "branch": null,
           "revision": "74d7b91ceebc85daf387ebb206003f78813f71aa",
